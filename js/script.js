@@ -10,28 +10,14 @@ let pokemonList2=[
     {name:"Wartortle", height:1.0, type:"Water"},
 ];
 
-/*add function field to make code*/
-function printArrayDetails(list) {
-    for (let i=0; i < list.length; i++){
+/*use the for each method to make code cleaner*/
+pokemonList.forEach(function(item){
             /*use document.write to show on the webpage and use console.log to show on the console page*/
-            console.log(list[i].name);
-            document.write("<p>" + list[i].name + "</p>");
-    }
-}
+    console.log(item);
+});
 
-printArrayDetails(pokemonList);
-printArrayDetails(pokemonList2);
+pokemonList2.forEach(function(item){
+    /*use document.write to show on the webpage and use console.log to show on the console page*/
+console.log(item);
+});
 
-function divide(dividend, divisor){
-    if (divisor === 0) {
-        return "You’re trying to divide by zero."
-    }else{
-        let result= dividend / divisor;
-        return result;
-    };
-}
-
-console.log(divide(4, 2));
-console.log(divide(7, 0));
-console.log(divide(1, 4));
-console.log(divide(12, -3));
