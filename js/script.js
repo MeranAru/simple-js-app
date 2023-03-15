@@ -27,9 +27,9 @@ console.log(pokemonRepository.getAll());
 
 
 /*use the for each method to make code cleaner*/
-pokemonList.forEach(function (pokemon) {
+pokemonRepository.getAll().forEach(function (pokemon) {
     if (pokemon.height >= 1.0) {
-        document.write ("<p>" + pokemon.name + " " + pokemon.height + "Wow, that is a big pokemon" + "</p>");
+        document.write ("<p>" + pokemon.name + " " + pokemon.height + " Wow, that is a big pokemon " + "</p>");
     } else if (pokemon.height) {
         document.write ("<p>" + pokemon.name + " " + pokemon.height)
     }
