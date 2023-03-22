@@ -1,3 +1,4 @@
+/*this gives the pokemon borders and backgrounds some colour*/
 .my-class {
     background-color: aqua;
     border: none;
@@ -15,7 +16,7 @@
     color: black;
     border: 2px solid aqua;
 }
-
+/*this gives the spacing for the pokemons*/
 .pokemon-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -23,6 +24,7 @@
     list-style-type: none;
 }
 
+/*this will allow all users to see in different screens*/
 @media all and (max-width:500px) {
     .pokemon-list {
         grid-template-columns: 1fr;
