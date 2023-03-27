@@ -1,9 +1,13 @@
 /*IIFE*/
-var pokemonRepository= (function () { 
+let pokemonRepository= (function () { 
     let pokemonList= [];
-    let apiURL= 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-    /*pokemon list*/
 
+    let apiURL= 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+
+    let modalContainer = document.querySelector('#modal-container');
+    
+
+    /*adds pokemons to the array if they meet the right conditions*/
     function add(pokemon) {
         if (
             typeof pokemon === 'object' &&
@@ -18,6 +22,8 @@ var pokemonRepository= (function () {
     function getAll() {
         return pokemonList;
     }
+
+    /*Shows buttons of pokemons with their names*/
     function addListItem(pokemon) {
         let pokemonList = document.querySelector('.pokemon-list');
         let listpokemon = document.createElement('li');
@@ -26,6 +32,7 @@ var pokemonRepository= (function () {
         button.classList.add('my-class');
         listpokemon.appendChild(button);
         pokemonList.appendChild(listpokemon);
+        /*eventListener shows details of pokemon*/
         button.addEventListener('click', function (event) {
             showDetails(pokemon);
     });
@@ -47,6 +54,7 @@ var pokemonRepository= (function () {
             console.error (e);
         })
     }
+    /*Shows specific details of the pokemon pulled form the API*/
     function loadDetails(item) {
         let url=item.detailsUrl;
         return fetch(url).then (function (response) {
@@ -60,18 +68,72 @@ var pokemonRepository= (function () {
             console.error(e);
         })
     }
-    function showDetails(item) {
-        pokemonRepository.loadDetails(item).then(function () {
-            console.log(item);
-        });
+
+    /*Details of pokemon shown when using a modal*/
+    function showDetails(pokemon) {
+        loadDetails(pokemon).then(function () {
+            showDetails(pokemon.name + pokemon.height + pokemon.imageUrl)
+        });    
     }
+
+    /* Creates a modal*/
+    function showModal(title, text, image) {
+
+        modalContainer.innerHTML = "";
+    
+        let modal = document.createElement('div');
+        modal.classList.add('modal');
+        /*Close Button in Modal*/
+        let closeButtonElement = document.createElement('button');
+        closeButtonElement.classList.add('modal-close');
+        closeButtonElement.innerText = 'Close';
+        closeButtonElement.addEventListener('click', hideModal);
+        /*Title in Modal*/
+        let titleElement = document.createElement('h1');
+        titleElement.innerText = title;
+        /*Text in Modal*/
+        let contentElement = document.createElement('p');
+        contentElement.innerText = text;
+        /*image in Modal*/
+        let imageElement = document.createElement('img');
+        imageElement.src = image
+    
+        modal.appendChild(closeButtonElement);
+        modal.appendChild(titleElement);
+        modal.appendChild(contentElement);
+        modal.appendChild(imageElement);
+        modalContainer.appendChild(modal);
+    
+        modalContainer.classList.add('is-visible');
+    }
+
+    /*Hides a modal*/
+    function hideModal() {
+        modalContainer.classList.remove('is-visible');
+    }
+    
+    /*Closes the modal when you click the ESC button*/
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+            hideModal();
+        }
+    });
+    /*Closes the modal when clicking outside the area of the modal*/
+    modalContainer.addEventListener('click', (e) => {
+        let target = e.target;
+        if (target === modalContainer) {
+            hideModal();
+        }
+    });
+
     return {
         add: add,
         getAll: getAll,
         addListItem: addListItem,
         loadList: loadList,
         loadDetails: loadDetails,
-        showDetails: showDetails
+        showDetails: showDetails,
+        showModal: showModal,
         };
 })();
 
