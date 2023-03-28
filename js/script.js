@@ -71,8 +71,12 @@ let pokemonRepository= (function () {
 
     /*Details of pokemon shown when using a modal*/
     function showDetails(pokemon) {
-        loadDetails(pokemon).then(function () {
-            showDetails(pokemon.name + pokemon.height + pokemon.imageUrl)
+        pokemonRepository.loadDetails(pokemon).then(function () {
+            console.log (pokemon);
+            pokemonName = pokemon.name;
+            pokemonHeight = pokemon.height;
+            pokemonImg = pokemon.imageUrl;
+            showModal();
         });    
     }
 
@@ -90,13 +94,13 @@ let pokemonRepository= (function () {
         closeButtonElement.addEventListener('click', hideModal);
         /*Title in Modal*/
         let titleElement = document.createElement('h1');
-        titleElement.innerText = title;
+        titleElement.innerText = pokemonName;
         /*Text in Modal*/
         let contentElement = document.createElement('p');
-        contentElement.innerText = text;
+        contentElement.innerText = pokemonHeight;
         /*image in Modal*/
         let imageElement = document.createElement('img');
-        imageElement.src = image
+        imageElement.src = pokemonImg;
     
         modal.appendChild(closeButtonElement);
         modal.appendChild(titleElement);
