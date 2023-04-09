@@ -37,6 +37,7 @@ let pokemonRepository= (function () {
         button.classList.add('btn');
         button.classList.add('btn-primary');
 
+
         listpokemon.appendChild(button);
         pokemonList.appendChild(listpokemon);
         /*eventListener shows details of pokemon*/
