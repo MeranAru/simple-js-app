@@ -3,6 +3,10 @@ body {
     text-align: center;
 }
 
+.page-container {
+    margin-top: 60px;
+}
+
 .my-class {
     background-color: aqua;
     border: none;
