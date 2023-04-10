@@ -36,7 +36,8 @@ let pokemonRepository= (function () {
         button.classList.add('my-class');
         button.classList.add('btn');
         button.classList.add('btn-primary');
-
+        button.setAttribute('data-toggle', 'modal');
+        button.setAttribute('data-target', '.modal');
 
         listpokemon.appendChild(button);
         pokemonList.appendChild(listpokemon);
