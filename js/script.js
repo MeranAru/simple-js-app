@@ -82,6 +82,7 @@ let pokemonRepository = (function () {
             pokemonName = pokemon.name;
             pokemonHeight = pokemon.height;
             pokemonImg = pokemon.imageUrl;
+            pokemonType = pokemon.types;
             showModal(pokemon)
         });    
     }
