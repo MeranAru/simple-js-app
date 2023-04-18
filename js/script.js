@@ -3,10 +3,7 @@ let pokemonRepository = (function () {
     let pokemonList = [];
 
     let apiURL = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-
-    let modalContainer = document.querySelector('#modal-container');
     
-
     /*adds pokemons to the array if they meet the right conditions*/
     function add(pokemon) {
         if (
@@ -85,7 +82,7 @@ let pokemonRepository = (function () {
             pokemonName = pokemon.name;
             pokemonHeight = pokemon.height;
             pokemonImg = pokemon.imageUrl;
-            showModal(pokemon);
+            showModal(pokemon)
         });    
     }
 
@@ -107,11 +104,11 @@ let pokemonRepository = (function () {
         /*create a types element*/
         let pokemonType = $('<p>' + 'types : ' + pokemon.types + '<p/>');
 
-        modalTitle.appendChild(pokemonName);
-        modalBody.appendChild(pokemonImg);
-        modalBody.appendChild(pokemonHeight);
-        modalBody.appendChild(pokemonType);
-        modalContainer.appendChild();
+        modalTitle.append(pokemonName);
+        modalBody.append(pokemonImg);
+        modalBody.append(pokemonHeight);
+        modalBody.append(pokemonType);
+
     }
     
     return {
