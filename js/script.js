@@ -79,10 +79,6 @@ let pokemonRepository = (function () {
     function showDetails(pokemon) {
         pokemonRepository.loadDetails(pokemon).then(function () {
             console.log (pokemon);
-            pokemonName = pokemon.name;
-            pokemonHeight = pokemon.height;
-            pokemonImg = pokemon.imageUrl;
-            pokemonType = pokemon.types;
             showModal(pokemon)
         });    
     }
@@ -102,8 +98,7 @@ let pokemonRepository = (function () {
         pokemonImg.attr('src', pokemon.imageUrl);
         /*create a height element*/
         let pokemonHeight = $('<p>' + 'height : ' + pokemon.height + '</p>');
-        /*create a types element*/
-        let pokemonType = $('<p>' + 'types : ' + pokemon.types + '<p/>');
+        
 
         modalTitle.append(pokemonName);
         modalBody.append(pokemonImg);
