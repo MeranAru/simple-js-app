@@ -103,7 +103,6 @@ let pokemonRepository = (function () {
         modalTitle.append(pokemonName);
         modalBody.append(pokemonImg);
         modalBody.append(pokemonHeight);
-        modalBody.append(pokemonType);
 
     }
     
