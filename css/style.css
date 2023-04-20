@@ -49,25 +49,3 @@ body {
 }
 
 /*this will allow all users to see in different screens*/
-@media all and (max-width:500px) {
-    .pokemon-list {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media all and (min-width:500px) and (max-width:750px) {
-    .pokemon-list {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media all and (max-width:750px) {
-    .pokemon-list {
-        grid-gap: 10px;
-    }
-
-    .pokemon-list:last-child {
-        grid-column: auto/auto;
-        grid-row:auto/auto;
-    }
-}
