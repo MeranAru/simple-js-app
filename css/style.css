@@ -53,11 +53,21 @@ body {
     .pokemon-list {
         grid-template-columns: 1fr;
     }
+    
+    .btn  {
+        width: 100%;
+        height: 100%;
+    }
 }
 
 @media all and (min-width:500px) and (max-width:750px) {
     .pokemon-list {
         grid-template-columns: 1fr 1fr;
+    }
+
+    .btn  {
+        width: 100%;
+        height: 100%;
     }
 }
 
@@ -69,5 +79,10 @@ body {
     .pokemon-list:last-child {
         grid-column: auto/auto;
         grid-row:auto/auto;
+    }
+
+    .btn  {
+        width: 100%;
+        height: 100%;
     }
 }
