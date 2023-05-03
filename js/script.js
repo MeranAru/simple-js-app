@@ -33,13 +33,13 @@ let pokemonRepository = (function () {
         button.classList.add('my-class');
         button.classList.add('btn');
         button.classList.add('btn-primary');
-        button.setAttribute("data-toggle", "modal");
-        button.setAttribute("data-target", ".modal");
+        button.setAttribute('data-toggle', 'modal');
+        button.setAttribute('data-target', '.modal');
 
         listPokemon.appendChild(button);
         pokemonList.appendChild(listPokemon);
         /*eventListener shows details of pokemon*/
-        button.addEventListener('click', function (event) {
+        button.addEventListener('click', function () {
             showDetails(pokemon);
     });
 }
@@ -83,10 +83,11 @@ let pokemonRepository = (function () {
         });    
     }
 
+    /*global $,*/
+    /*eslint no-undef: "error"*/    
     function showModal(pokemon) {
         let modalBody = $('.modal-body');
         let modalTitle = $('.modal-title');
-        let modalHeader = $('.modal-header');
 
         modalTitle.empty();
         modalBody.empty();
@@ -94,7 +95,7 @@ let pokemonRepository = (function () {
         /*create a name element on modal*/
         let pokemonName = $('<h1>' + pokemon.name + '</h1>');
         /*create a front img element on modal*/
-        let pokemonImg = $("<img class='modal-img' style='width:50%'>");
+        let pokemonImg = $('<img class="modal-img" style="width:50%">');
         pokemonImg.attr('src', pokemon.imageUrl);
         /*create a height element*/
         let pokemonHeight = $('<p>' + 'height : ' + pokemon.height + '</p>');
@@ -103,7 +104,6 @@ let pokemonRepository = (function () {
         modalTitle.append(pokemonName);
         modalBody.append(pokemonImg);
         modalBody.append(pokemonHeight);
-
     }
     
     return {
